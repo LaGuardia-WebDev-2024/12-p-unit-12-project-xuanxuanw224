@@ -1,16 +1,16 @@
 <!-- Unit 12 Project
 Requirements
-[  ] Two Interactive Drop-down Inputs 
-[  ] Standard Animation
-[  ] Custom Animation
-[  ] Include Three Images
+[ yes ] Two Interactive Drop-down Inputs 
+[ yes ] Standard Animation
+[ yes ] Custom Animation
+[ yes ] Include Three Images
 
 Select ONE Additional Feature to Add  
 [ no ] Feature 1 - Google Font
 [ no ] Feature 2 - Chain jQuery Methods
 [ no ] Feature 3 - .mouseover() & .mouseOut() Methods
 [ no ] Feature 4 - :hover Feature 
-[ no ] Feature 5 - Add an Additional Interactive Drop-down
+[ yes ] Feature 5 - Add an Additional Interactive Drop-down
 -->
 
 <!DOCTYPE html>
@@ -21,12 +21,13 @@ Select ONE Additional Feature to Add
     <link href="style.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <h1>Quiz About [Me]</h1>
+
+    <h1>Epic dispatch quiz</h1>
     <hr />
     <!-- Movie Question -->
     <form id="movie-form">
       <label>
-        🎥 Who did robert canonically end up with in Dispatch?
+        🤖 Who did robert canonically end up with in Dispatch?
         <select id="movie-answer">
           <option value="movie1">Visi</option>
           <option value="movie2">Toxic</option>
@@ -43,12 +44,12 @@ Select ONE Additional Feature to Add
     <!-- Book Question -->
     <form id="book-form">
       <label>
-        📖 What is my favorite book?
+        🔥 What is the best ship in dispatch?
         <select id="book-answer">
-          <option value="book1">book 1</option>
-          <option value="book2">book 2</option>
-          <option value="book3">book 3</option>
-          <option value="book4">book 4</option>
+          <option value="book1">Toxbert</option>
+          <option value="book2">Invisiblaze/option>
+          <option value="book3">Flambert</option>
+          <option value="book4">All of the above</option>
         </select>
       </label>
       <button type="submit">Check Book Answer</button>
@@ -56,9 +57,58 @@ Select ONE Additional Feature to Add
     <div id="book-result">
       <p id="book-text"></p>
     </div>
+    <hr />
+     <!-- Boo Question -->
+    <form id="boo-form">
+      <label>
+        🧪 Who is the most underrated character in dispatch?
+        <select id="boo-answer">
+          <option value="boo1">Toxic</option>
+          <option value="boo2">Waterboy</option>
+          <option value="boo3">Phenomaman</option>
+          <option value="boo4">Shroud</option>
+        </select>
+      </label>
+      <button type="submit">Check Book Answer</button>
+    </form>
+    <div id="boo-result">
+      <p id="boo-text"></p>
+    </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       
+//============================
+
+$("#movie-form").click(function () {
+       $("img").animate({
+          width:400,
+          marginLeft: "0px"
+       })
+       $("h1").animate({
+          width:400
+
+       })
+      });
+
+      $("#book-form").click(function () {
+       $("img").animate({
+          width:200
+       })
+       $("h1").animate({
+          width:200
+       })
+      });
+
+      
+      $("#boo-form").click(function () {
+       $("img").animate({
+          marginLeft: "200px"
+       }, 1000);
+      });
+    
+//===========================
+
+
       //========================Movie Question jQuery Code
       $("#movie-form").on("submit", function (event) {
         event.preventDefault();
@@ -66,7 +116,7 @@ Select ONE Additional Feature to Add
         var $answer = $("#movie-answer");
         var answer = $answer.val();
 
-        if (answer === "movie1") {
+        if (answer === "movie4") {
           $("#movie-text").text("YESSSS!");
         } 
         else {
@@ -81,7 +131,7 @@ Select ONE Additional Feature to Add
         var $answer = $("#book-answer");
         var answer = $answer.val();
 
-        if (answer === "book1") {
+        if (answer === "book4") {
           $("#book-text").text("YESSSS!");
         } 
         else {
@@ -89,7 +139,46 @@ Select ONE Additional Feature to Add
         }
       });
       
+      //=======================Book Question jQuery Code
+      $("#boo-form").on("submit", function (event) {
+        event.preventDefault();
+
+        var $answer = $("#boo-answer");
+        var answer = $answer.val();
+
+        if (answer === "boo1") {
+          $("#boo-text").text("YESSSS!");
+        } 
+        else {
+          $("#boo-text").text("Try Again!");
+        }
+      });
+
     </script>
+
+      <div class="avatar">
+      <img
+        src="https://static0.thegamerimages.com/wordpress/wp-content/uploads/2025/11/dispatchrobert.jpg?w=1600&h=900&fit=crop"
+        width="150"
+      />
+      <h1>wobert</h1>
+    </div>
+
+    <div class="avatar">
+      <img
+        src="https://static0.polygonimages.com/wordpress/wp-content/uploads/2025/11/dispatch-choices-stats-adhoc.jpg?w=1600&h=900&fit=crop"
+        width="150"
+      />
+      <h1> also wobert</h1>
+    </div>
+    
+    <div class="avatar">
+      <img
+        src="https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/robertrobertson2.webp"
+        width="150"
+      />
+      <h1>wobert as well</h1>
+    </div>
   </body>
 
   <!--- Taken From Khan Academy HTML/JS: Making webpages interactive with jQuery-->
